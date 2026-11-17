@@ -20,10 +20,12 @@ export function Fields({ children }: { children: React.ReactNode }) {
   )
 }
 
-function FieldBox(props: { label: string; span: number; children: React.ReactNode }) {
+function FieldBox(props: { label: string; span: number; required?: boolean; children: React.ReactNode }) {
   return (
     <Col xs={24} md={props.span}>
-      <Form.Item label={<span className="field-label">{props.label}</span>}>{props.children}</Form.Item>
+      <Form.Item required={props.required} label={<span className="field-label">{props.label}</span>}>
+        {props.children}
+      </Form.Item>
     </Col>
   )
 }
@@ -44,12 +46,13 @@ export function TextField(props: {
   value: string
   onChange: (value: string) => void
   span?: number
+  required?: boolean
 }) {
   const span = props.span ?? 8
   const editing = useEditing()
 
   return (
-    <FieldBox label={props.label} span={span}>
+    <FieldBox label={props.label} span={span} required={props.required}>
       {editing ? (
         <Input
           value={props.value}
@@ -67,12 +70,13 @@ export function DateField(props: {
   value: string
   onChange: (value: string) => void
   span?: number
+  required?: boolean
 }) {
   const span = props.span ?? 8
   const editing = useEditing()
 
   return (
-    <FieldBox label={props.label} span={span}>
+    <FieldBox label={props.label} span={span} required={props.required}>
       {editing ? (
         <Input
           type="date"
@@ -133,13 +137,14 @@ export function SelectField<Value extends string>(props: {
   onChange: (value: Value) => void
   options: { value: Value; label: string }[]
   span?: number
+  required?: boolean
 }) {
   const span = props.span ?? 8
   const editing = useEditing()
   const current = props.options.find((option) => option.value === props.value)
 
   return (
-    <FieldBox label={props.label} span={span}>
+    <FieldBox label={props.label} span={span} required={props.required}>
       {editing ? (
         <Select
           value={props.value}

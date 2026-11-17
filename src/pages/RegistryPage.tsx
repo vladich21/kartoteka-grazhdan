@@ -58,7 +58,8 @@ export function RegistryPage() {
     )
   }
 
-  const total = matched.length
+  const totalPeople = people.length
+  const found = matched.length
   const start = (page - 1) * PAGE_SIZE
   const pageRows = matched.slice(start, start + PAGE_SIZE)
 
@@ -82,7 +83,13 @@ export function RegistryPage() {
         />
       </Card>
 
-      <Card title={`Список граждан (${total.toLocaleString('ru-RU')})`}>
+      <Card
+        title={
+          found === totalPeople
+            ? `Всего граждан: ${totalPeople.toLocaleString('ru-RU')}`
+            : `Найдено ${found.toLocaleString('ru-RU')} из ${totalPeople.toLocaleString('ru-RU')}`
+        }
+      >
         <Table
           size="small"
           rowKey="id"
@@ -91,7 +98,7 @@ export function RegistryPage() {
           pagination={{
             current: page,
             pageSize: PAGE_SIZE,
-            total,
+            total: found,
             showSizeChanger: false,
             onChange: setPage,
           }}

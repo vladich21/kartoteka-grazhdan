@@ -26,7 +26,7 @@ export function ContactsTab({
   return (
     <div>
       <Fields>
-        <TextField label="Телефон" value={person.phone} onChange={(phone) => patch({ phone })} />
+        <TextField label="Телефон" value={person.phone} onChange={(phone) => patch({ phone })} required />
         <TextField label="Доп. телефон" value={person.phoneAlt} onChange={(phoneAlt) => patch({ phoneAlt })} />
         <TextField label="E-mail" value={person.email} onChange={(email) => patch({ email })} />
         <TextField label="Telegram" value={person.telegram} onChange={(telegram) => patch({ telegram })} />

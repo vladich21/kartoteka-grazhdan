@@ -8,7 +8,7 @@ export const ACCOUNT_PARAMS: AccountParam[] = [
   { key: 'gender', title: 'Пол', group: 'Личные данные', type: 'список', required: true, description: 'Пол' },
   { key: 'citizenship', title: 'Гражданство', group: 'Личные данные', type: 'список', required: true, description: 'Гражданство' },
   { key: 'birthPlace', title: 'Место рождения', group: 'Личные данные', type: 'строка', required: false, description: 'Место рождения' },
-  { key: 'birthCountry', title: 'Страна рождения', group: 'Личные данные', type: 'число', required: false, description: 'Страна рождения' },
+  { key: 'birthCountry', title: 'Страна рождения', group: 'Личные данные', type: 'строка', required: false, description: 'Страна рождения' },
   { key: 'maritalStatus', title: 'Семейное положение', group: 'Личные данные', type: 'список', required: false, description: 'Семейное положение' },
   { key: 'nationality', title: 'Национальность', group: 'Личные данные', type: 'строка', required: false, description: 'Национальность' },
   { key: 'nativeLanguage', title: 'Родной язык', group: 'Личные данные', type: 'строка', required: false, description: 'Родной язык' },

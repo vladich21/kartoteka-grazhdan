@@ -11,13 +11,13 @@ export function DocsTab({
   return (
     <div>
       <Fields>
-        <TextField label="СНИЛС" value={person.snils} onChange={(snils) => patch({ snils })} />
+        <TextField label="СНИЛС" value={person.snils} onChange={(snils) => patch({ snils })} required />
         <TextField label="ИНН" value={person.inn} onChange={(inn) => patch({ inn })} />
-        <TextField label="Серия паспорта" value={person.passportSeries} onChange={(passportSeries) => patch({ passportSeries })} />
-        <TextField label="Номер паспорта" value={person.passportNumber} onChange={(passportNumber) => patch({ passportNumber })} />
-        <TextField label="Код подразделения" value={person.passportCode} onChange={(passportCode) => patch({ passportCode })} />
-        <DateField label="Дата выдачи" value={person.passportIssuedAt} onChange={(passportIssuedAt) => patch({ passportIssuedAt })} />
-        <TextField label="Кем выдан" value={person.passportIssuedBy} onChange={(passportIssuedBy) => patch({ passportIssuedBy })} span={24} />
+        <TextField label="Серия паспорта" value={person.passportSeries} onChange={(passportSeries) => patch({ passportSeries })} required />
+        <TextField label="Номер паспорта" value={person.passportNumber} onChange={(passportNumber) => patch({ passportNumber })} required />
+        <TextField label="Код подразделения" value={person.passportCode} onChange={(passportCode) => patch({ passportCode })} required />
+        <DateField label="Дата выдачи" value={person.passportIssuedAt} onChange={(passportIssuedAt) => patch({ passportIssuedAt })} required />
+        <TextField label="Кем выдан" value={person.passportIssuedBy} onChange={(passportIssuedBy) => patch({ passportIssuedBy })} span={24} required />
       </Fields>
     </div>
   )

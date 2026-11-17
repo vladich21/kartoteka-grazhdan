@@ -46,15 +46,16 @@ export function ProfileTab({
         <div className="profile-fields">
           <h4>Общая информация</h4>
           <Fields>
-            <TextField label="Фамилия" value={person.lastName} onChange={(lastName) => patch({ lastName })} />
-            <TextField label="Имя" value={person.firstName} onChange={(firstName) => patch({ firstName })} />
+            <TextField label="Фамилия" value={person.lastName} onChange={(lastName) => patch({ lastName })} required />
+            <TextField label="Имя" value={person.firstName} onChange={(firstName) => patch({ firstName })} required />
             <TextField label="Отчество" value={person.middleName} onChange={(middleName) => patch({ middleName })} />
-            <DateField label="Дата рождения" value={person.birthDate} onChange={(birthDate) => patch({ birthDate })} />
+            <DateField label="Дата рождения" value={person.birthDate} onChange={(birthDate) => patch({ birthDate })} required />
             <SelectField
               label="Пол"
               value={person.gender}
               onChange={(gender) => patch({ gender })}
               options={labelOptions<Citizen['gender']>(GENDER_LABEL)}
+              required
             />
             <SelectField
               label="Семейное положение"
@@ -62,7 +63,7 @@ export function ProfileTab({
               onChange={(maritalStatus) => patch({ maritalStatus })}
               options={labelOptions<Citizen['maritalStatus']>(MARITAL_LABEL)}
             />
-            <TextField label="Гражданство" value={person.citizenship} onChange={(citizenship) => patch({ citizenship })} />
+            <TextField label="Гражданство" value={person.citizenship} onChange={(citizenship) => patch({ citizenship })} required />
             <TextField label="Национальность" value={person.nationality} onChange={(nationality) => patch({ nationality })} />
             <TextField label="Профессия" value={person.profession} onChange={(profession) => patch({ profession })} />
             <TextField label="Подразделение" value={person.department} onChange={(department) => patch({ department })} />
@@ -75,6 +76,7 @@ export function ProfileTab({
               value={person.status}
               onChange={(status) => patch({ status })}
               options={labelOptions<Citizen['status']>(STATUS_LABEL)}
+              required
             />
             <TextField label="Место рождения" value={person.birthPlace} onChange={(birthPlace) => patch({ birthPlace })} span={24} />
             <TextAreaField label="Примечание" value={person.notes} onChange={(notes) => patch({ notes })} />

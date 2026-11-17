@@ -18,10 +18,11 @@ export function AddressFields(props: {
           value: region.name,
           label: region.name,
         }))}
+        required
       />
-      <TextField label="Город" value={address.city} onChange={(city) => props.onChange({ city })} />
-      <TextField label="Улица" value={address.street} onChange={(street) => props.onChange({ street })} />
-      <TextField label="Дом" value={address.house} onChange={(house) => props.onChange({ house })} />
+      <TextField label="Город" value={address.city} onChange={(city) => props.onChange({ city })} required />
+      <TextField label="Улица" value={address.street} onChange={(street) => props.onChange({ street })} required />
+      <TextField label="Дом" value={address.house} onChange={(house) => props.onChange({ house })} required />
       <TextField label="Квартира" value={address.apartment} onChange={(apartment) => props.onChange({ apartment })} />
       <TextField label="Индекс" value={address.postalCode} onChange={(postalCode) => props.onChange({ postalCode })} />
     </Fields>
